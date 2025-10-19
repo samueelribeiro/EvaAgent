@@ -59,8 +59,7 @@ public class OrquestradorMensagensService
             // 4. Pseudonimizar dados sensíveis antes de enviar para IA
             var conteudoPseudonimizado = await _pseudonimizador.PseudonimizarAsync(
                 webhookDto.Conteudo,
-                conversa.Id,
-                null);
+                conversa.Id);
 
             // 5. Identificar intenção e agente apropriado
             var agente = await _intentResolver.ResolverAgenteAsync(conteudoPseudonimizado, espacoId);
